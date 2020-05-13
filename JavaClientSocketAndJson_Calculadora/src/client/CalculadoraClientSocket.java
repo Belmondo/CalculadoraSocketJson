@@ -19,10 +19,21 @@ public class CalculadoraClientSocket {
 		BufferedReader reader = new BufferedReader(new InputStreamReader(clientSocket.getInputStream(),"UTF-8"));
 		
 		JSONObject jsonObject = new JSONObject();
-		jsonObject.put("operacao", "1");
-		jsonObject.put("operador1", "3");
-		jsonObject.put("operador2", "5");
+		jsonObject.put("operador1", "5");
+		jsonObject.put("operacao1", "-");
+		jsonObject.put("operador2", "3");
+		jsonObject.put("operacao2", "/");
+		jsonObject.put("operador3", "3");
+		jsonObject.put("operacao3", "+");
+		jsonObject.put("operador4", "2");
+		jsonObject.put("operacao4", "*");
+		jsonObject.put("operador5", "4");
 		
+		System.out.println(jsonObject.toString());
+		
+		//Professor, percebi que a biblioteca escolhida possui uma falha que não atendem satisfatóriamente a solução que desenvolvi.
+		// O problema percebido é que a biblioteca em questão embaralha o json ao enviar, o que atrapalha na lógica que fiz no servidor
+		//infelizmente percebi tardiamente
 		writer.write(jsonObject.toString() + "\n");
 		writer.flush();
 		
